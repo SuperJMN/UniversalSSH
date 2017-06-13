@@ -1,0 +1,13 @@
+﻿<Application
+    x:Class="SSH.App"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:SSH"
+    xmlns:converters="using:Microsoft.Toolkit.Uwp.UI.Converters"
+    RequestedTheme="Dark">
+
+    <Application.Resources>
+        <converters:BoolToVisibilityConverter x:Key="BoolToVisibilityConverter" />
+        <converters:BoolNegationConverter x:Key="BoolNegationConverter" />
+    </Application.Resources>
+</Application>

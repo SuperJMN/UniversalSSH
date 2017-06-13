@@ -1,0 +1,305 @@
+﻿<Page
+    x:Class="SSH.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:SSH"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:interactivity="using:Microsoft.Xaml.Interactivity"
+    xmlns:core="using:Microsoft.Xaml.Interactions.Core"
+    xmlns:supporters="using:SSH.Supporters"
+    xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
+    mc:Ignorable="d">
+    <Page.DataContext>
+        <local:MainViewModel />
+    </Page.DataContext>
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <ScrollViewer>
+            <TextBlock Text="{Binding Output}" VerticalAlignment="Bottom" />
+        </ScrollViewer>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+            <Border Background="#CDFFFFFF" BorderThickness="1" BorderBrush="#9B000000">
+                <TextBox BorderThickness="0" Background="Transparent" VerticalAlignment="Center" Text="{Binding SendText, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" IsEnabled="{Binding IsBusy, Converter={StaticResource BoolNegationConverter}}">
+                    <interactivity:Interaction.Behaviors>
+                        <supporters:KeyTrigger Key="Enter">
+                            <core:InvokeCommandAction Command="{Binding ExecuteCommand}" />
+                        </supporters:KeyTrigger>
+                    </interactivity:Interaction.Behaviors>
+                </TextBox>
+            </Border>
+           
+            <Button Grid.Column="1" Command="{Binding ExecuteCommand}">
+                <Button.Content>
+                    <TextBlock x:Name="SendIcon" FontFamily="Segoe MDL2 Assets" Text="&#xE122;" FontSize="30"  />
+                </Button.Content>
+            </Button>
+            <ProgressBar Grid.Column="0" Height="5" VerticalAlignment="Bottom" IsIndeterminate="True"
+                         Visibility="{Binding IsBusy, Converter={StaticResource BoolToVisibilityConverter}}" />
+        </Grid>
+    </Grid>
+
+</Page>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

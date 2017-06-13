@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.26430.13
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SSH", "SSH\SSH.csproj", "{D21A6687-8AF7-42A5-B551-A367A5DA7D5A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UwpApp", "UwpApp\UwpApp.csproj", "{D21A6687-8AF7-42A5-B551-A367A5DA7D5A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
