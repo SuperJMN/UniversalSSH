@@ -9,7 +9,6 @@ namespace SSH
     public class OutputPoller : IDisposable
     {
         private readonly Stream output;
-        long readBytes;
         private readonly ISubject<string> textReceivedSubject = new Subject<string>();
         private readonly IDisposable updater;
 
@@ -25,22 +24,15 @@ namespace SSH
 
         private void Read()
         {
-            var bufferLength = output.Length - readBytes;
-            if (bufferLength == 0)
-            {
-                return;
-            }
-
-            var buffer = new byte[bufferLength];
-
-            output.Seek(readBytes, SeekOrigin.Begin);
-
-            output.Read(buffer, (int)readBytes, (int)bufferLength);
+            var bufflen = output.Length - output.Position;
+            var buffer = new byte[bufflen];
+            output.Read(buffer, (int) output.Position, (int)bufflen);
 
             var str = Encoding.UTF8.GetString(buffer);
-
-            textReceivedSubject.OnNext(str);
-            readBytes += bufferLength;
+            if (str != string.Empty)
+            {
+                textReceivedSubject.OnNext(str);
+            }
         }
 
         public IObservable<string> TextReceived => textReceivedSubject.AsObservable();

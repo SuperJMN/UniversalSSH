@@ -20,7 +20,10 @@
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
         <ScrollViewer>
-            <TextBlock Text="{Binding Output}" VerticalAlignment="Bottom" />
+            <TextBlock FontFamily="Consolas" Text="{Binding Output}" VerticalAlignment="Bottom" />
+            <interactivity:Interaction.Behaviors>
+                <local:ScrollToEndBehavior></local:ScrollToEndBehavior>
+            </interactivity:Interaction.Behaviors>
         </ScrollViewer>
         <Grid Grid.Row="1">
             <Grid.ColumnDefinitions>
