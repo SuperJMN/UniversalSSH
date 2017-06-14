@@ -6,13 +6,13 @@ using System.Text;
 
 namespace SSH
 {
-    public class OutputPoller : IDisposable
+    public class StreamPoller : IDisposable
     {
         private readonly Stream output;
         private readonly ISubject<string> textReceivedSubject = new Subject<string>();
         private readonly IDisposable updater;
 
-        public OutputPoller(Stream output)
+        public StreamPoller(Stream output)
         {
             this.output = output;
 
